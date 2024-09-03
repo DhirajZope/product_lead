@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     # Third party apps registration
     'rest_framework',
     'rest_framework_simplejwt',
+    'drf_yasg',
 
     # Local Django app registration
     'authentication.apps.AuthenticationConfig',
@@ -113,7 +114,7 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'DEBUG',
+            'level': 'INFO',
             'class': 'logging.StreamHandler',
             'formatter': 'simple',
         },
@@ -149,6 +150,17 @@ SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=30),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=30),
     'UPDATE_LAST_LOGIN': True,
+}
+
+# Swagger Documentation Settings
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+        }
+    },
 }
 
 # Internationalization

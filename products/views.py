@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.generics import ListAPIView
+from drf_yasg.utils import swagger_auto_schema
 
 # Local application imports
 from .services import ProductService
@@ -60,7 +61,7 @@ class ProductView(APIView):
 
         return Response(update_status, status=status.HTTP_200_OK)
 
-    def delete(self, product_id: int):
+    def delete(self, _, product_id: int):
         is_deleted = ProductService.delete_product(product_id)
 
         if is_deleted:

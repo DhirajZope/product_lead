@@ -17,7 +17,7 @@ logger = logging.getLogger(__name__)
 class ProductService:
 
     @classmethod
-    def get_products(cls) -> QuerySet:
+    def get_products(cls) -> QuerySet[Product]:
         """
         Fetch all products from the database
 
@@ -40,7 +40,7 @@ class ProductService:
         Raises:
             ObjectDoesNotExists: If no product with specified id exists in the database.
         """
-        return Product.objects.get(pkid=product_id)
+        return Product.objects.get(id=product_id)
 
     @classmethod
     def get_product(cls, product_id: int) -> Optional[Dict[str, Any]]:
