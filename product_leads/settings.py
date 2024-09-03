@@ -70,6 +70,7 @@ WSGI_APPLICATION = 'product_leads.wsgi.application'
 # Setting up custom user model.
 AUTH_USER_MODEL = 'authentication.CustomUser'
 
+
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
@@ -154,6 +155,7 @@ SIMPLE_JWT = {
 
 # Swagger Documentation Settings
 SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
     'SECURITY_DEFINITIONS': {
         'Bearer': {
             'type': 'apiKey',
