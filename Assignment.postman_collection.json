@@ -1,0 +1,496 @@
+{
+	"info": {
+		"_postman_id": "07d6af2c-bf6e-43b6-bccc-536b06135fee",
+		"name": "Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18416353",
+		"_collection_link": "https://lively-crater-789975.postman.co/workspace/Dhiraj~335d7505-aacd-4400-b38d-39295f87f801/collection/18416353-07d6af2c-bf6e-43b6-bccc-536b06135fee?action=share&source=collection_link&creator=18416353"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Auth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"admin@email.com\",\n    \"password\": \"Admin\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/auth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get All Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/products/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1NDI4NTcwLCJpYXQiOjE3MjU0MjY3NzAsImp0aSI6ImY0NGQ2YjUwODVkMjRhZDVhYTljMWNkOTg5NWJmY2E1IiwidXNlcl9pZCI6ImFkbWluQGVtYWlsLmNvbSJ9.iaBBtF7U9dDYydSEa8CMnunyEJm5nG-F4NLxCr2ohss",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/products/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1NDI4NTcwLCJpYXQiOjE3MjU0MjY3NzAsImp0aSI6ImY0NGQ2YjUwODVkMjRhZDVhYTljMWNkOTg5NWJmY2E1IiwidXNlcl9pZCI6ImFkbWluQGVtYWlsLmNvbSJ9.iaBBtF7U9dDYydSEa8CMnunyEJm5nG-F4NLxCr2ohss",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Sausages\",\n  \"description\": \"Carbonite web goalkeeper gloves are ergonomically designed to give easy fit\",\n  \"price\": \"655.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/products/create/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update A Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1NDI4NTcwLCJpYXQiOjE3MjU0MjY3NzAsImp0aSI6ImY0NGQ2YjUwODVkMjRhZDVhYTljMWNkOTg5NWJmY2E1IiwidXNlcl9pZCI6ImFkbWluQGVtYWlsLmNvbSJ9.iaBBtF7U9dDYydSEa8CMnunyEJm5nG-F4NLxCr2ohss",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"DELL Mouse\",\n    \"description\": \"The Football Is Good For Training And Recreational Purposes\",\n    \"price\": \"493.00\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/products/1/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/products/13/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products",
+								"13",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Leads",
+			"item": [
+				{
+					"name": "List All Leads",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/leads/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"leads",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get One Lead",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/leads/6/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"leads",
+								"6",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Lead",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Roderick Kulas\",\n    \"email\": \"Heloise.Veum22@hotmail.com\",\n    \"phone_number\": \"16066252619\",\n    \"interested_products\": [\n        3,\n        4,\n        6,\n        8,\n        10\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/leads/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"leads",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Ardith Beier\",\n    \"email\": \"Rupert28@ymail.com\",\n    \"phone_number\": \"5879431480\",\n    \"created_at\": \"2024-09-04T05:54:50.338738Z\",\n    \"interested_products\": [\n        2,\n        4,\n        8\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/leads/6/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"leads",
+								"6",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/leads/5/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"leads",
+								"5",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Top 10 Products",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8000/top-ten-products/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"top-ten-products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Bottom 10 Products",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/bottom-ten-products/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"bottom-ten-products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Leads Between Dates",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8000/products-inquired-count/",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"products-inquired-count",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzI1NDMwMzgyLCJpYXQiOjE3MjU0Mjg1ODIsImp0aSI6ImE3NGVjZjJmNjNkZDRhNzRiNTE0MTc1NTQ3ZWVjOTM5IiwidXNlcl9pZCI6ImFkbWluQGVtYWlsLmNvbSJ9.hY5GiQWd06xbM3Zqm5htTRzmvzSNNBYL12ufdXJ44Ic",
+			"type": "string"
+		}
+	]
+}

@@ -14,7 +14,7 @@ class Lead(models.Model):
         related_name="leads",
         related_query_name="lead"
     )
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateField(auto_now_add=True)
 
     def __str__(self):
         return self.name

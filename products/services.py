@@ -98,8 +98,8 @@ class ProductService:
         """
 
         try:
-            if "pkid" in product_info:
-                product_info.pop("pkid")
+            if "id" in product_info:
+                product_info.pop("id")
 
             product = cls._get_unserialized_product(product_id)
             serializer = ProductSerializer(instance=product, data=product_info, partial=True)

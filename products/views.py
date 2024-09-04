@@ -18,6 +18,20 @@ class ProductListView(ListAPIView):
     serializer_class = ProductSerializer
 
 
+class ProductCreateView(APIView):
+    def post(self, request):
+        product_info = request.data
+        errors = ProductService.create_product(product_info)
+
+        if errors is not None:
+            return Response(errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+        return Response(
+            {"message": "Product created successfully."},
+            status=status.HTTP_201_CREATED
+        )
+
+
 class ProductView(APIView):
 
     def get(self, _, product_id: int):
@@ -30,18 +44,6 @@ class ProductView(APIView):
             )
 
         return Response(product, status=status.HTTP_200_OK)
-
-    def post(self, request):
-        product_info = request.data
-        errors = ProductService.create_product(product_info)
-
-        if errors is not None:
-            return Response(errors, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
-
-        return Response(
-            {"message": "Product created successfully."},
-            status=status.HTTP_201_CREATED
-        )
 
     def patch(self, request, product_id: int):
         data_to_update = request.data
